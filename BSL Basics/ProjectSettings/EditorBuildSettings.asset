@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Desktop/1 - Menu.unity
+    guid: ee49a2b9953befa4eac8cc3d0249e0d6
+  - enabled: 1
+    path: Assets/Scenes/Desktop/2 - VowelPracticeDT.unity
+    guid: d29857918a411f54b8375d1ea31ded79
+  - enabled: 1
+    path: Assets/Scenes/Desktop/3 - VowelChallengeDT.unity
+    guid: fc18b88f99f06524eb249fad56269731
+  - enabled: 1
+    path: Assets/Scenes/Desktop/4 - ConsonantPractice1DT.unity
+    guid: a204dc242e831ff49b3e67a6876ccddf
+  - enabled: 0
+    path: Assets/Scenes/Mounted_VR/VowelPracticeVR.unity
+    guid: 9c0b4d5ce4a80f94aa778fda76403d9f
+  m_configObjects: {}
