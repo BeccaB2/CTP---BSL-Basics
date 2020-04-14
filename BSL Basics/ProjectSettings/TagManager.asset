@@ -40,6 +40,7 @@ TagManager:
   - ClosedFingersRight
   - LeftIndexPalm
   - LeftPinkyPalm
+  - TouchpointZ
   layers:
   - Default
   - TransparentFX

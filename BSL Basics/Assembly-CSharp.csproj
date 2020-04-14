@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ED659456-CA91-371D-7C41-55E700814B68}</ProjectGuid>
+    <ProjectGuid>{E8AC0756-AEB5-45ED-129C-ABF1D36DB505}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -239,6 +239,7 @@
      <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\XRSupportUtil.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
+     <Compile Include="Assets\LetterConflictTesting.cs" />
      <Compile Include="Assets\Scripts\1-Menu\ButtonCollision.cs" />
      <Compile Include="Assets\Scripts\2-Vowels\CollisionDetectionVowels.cs" />
      <Compile Include="Assets\Scripts\2-Vowels\VowelTasks.cs" />
@@ -265,10 +266,10 @@
      <None Include="Assets\LeapMotion\Core\Version.txt" />
      <None Include="Assets\LeapMotion\Core\Shaders\VertexOffsetShader.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/rebec/Documents/third year/CTP/Repo/CTP---BSL-Basics/leap setup testing/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/rebec/Documents/third year/CTP/Repo/CTP---BSL-Basics/BSL Basics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/rebec/Documents/third year/CTP/Repo/CTP---BSL-Basics/leap setup testing/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/rebec/Documents/third year/CTP/Repo/CTP---BSL-Basics/BSL Basics/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.9f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
