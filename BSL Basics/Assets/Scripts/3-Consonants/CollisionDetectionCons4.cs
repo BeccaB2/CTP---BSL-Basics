@@ -1,19 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionDetectionCons4 : MonoBehaviour
 {
-    Collider LeftThumbTip;
-    Collider LeftThumbMiddle;
-    Collider LeftIndexTip;
-    Collider LeftPinkyBot;
+    GameObject hands;
+    FindColliders colliders;
 
-    Collider LeftPinkyPalm;
-
-    Collider RightIndexTip;
-    Collider RightIndexMiddle;
-        
     public bool QSigned;
     public bool RSigned;
     public bool SSigned;
@@ -24,10 +18,16 @@ public class CollisionDetectionCons4 : MonoBehaviour
     public bool SPracticed;
     public bool TPracticed;
 
-    //public GameObject leftHand;
-    //public GameObject rightHand;
-
     void Start()
+    {
+        // Initialising booleans
+        InitBools();
+
+        // Finding hands and colliders
+        FindHandsAndColliders();
+    }
+
+    private void InitBools()
     {
         QSigned = false;
         RSigned = false;
@@ -38,9 +38,22 @@ public class CollisionDetectionCons4 : MonoBehaviour
         RPracticed = false;
         SPracticed = false;
         TPracticed = false;
+    }
 
-        FindLeftColliders();
-        FindRightColliders();
+    private void FindHandsAndColliders()
+    {
+        // Finding the hand object
+        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
+            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        {
+            hands = GameObject.Find("LeapHandController");
+        }
+        else
+        {
+            hands = GameObject.Find("HandModels");
+        }
+
+        colliders = hands.GetComponent<FindColliders>();
     }
 
     void Update()
@@ -48,28 +61,11 @@ public class CollisionDetectionCons4 : MonoBehaviour
         CheckCollision();
     }
 
-    private void FindRightColliders()
-    {
-        RightIndexTip = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
-        RightIndexMiddle = GameObject.FindGameObjectWithTag("RightIndexMid").GetComponent<CapsuleCollider>();
-    }
-
-    private void FindLeftColliders()
-    {
-        LeftThumbTip = GameObject.FindGameObjectWithTag("LeftThumbTip").GetComponent<CapsuleCollider>();
-        LeftThumbMiddle = GameObject.FindGameObjectWithTag("LeftThumbMid").GetComponent<CapsuleCollider>();
-        LeftIndexTip = GameObject.FindGameObjectWithTag("LeftIndexTip").GetComponent<CapsuleCollider>();
-        LeftPinkyBot = GameObject.FindGameObjectWithTag("LeftPinkyBot").GetComponent<CapsuleCollider>();
-
-        LeftPinkyPalm = GameObject.FindGameObjectWithTag("LeftPinkyPalm").GetComponent<BoxCollider>();
-
-    }
-
     private void CheckCollision()
     {
         // Q
-        if (LeftIndexTip.bounds.Intersects(LeftThumbTip.bounds) &&
-            RightIndexTip.bounds.Intersects(LeftThumbMiddle.bounds))
+        if (colliders.LeftIndexTip.bounds.Intersects(colliders.LeftThumbTip.bounds) &&
+            colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbMid.bounds))
         {
             Debug.Log("Q");
             QSigned = true;
@@ -81,8 +77,8 @@ public class CollisionDetectionCons4 : MonoBehaviour
         }
 
         // R
-        if (RightIndexTip.bounds.Intersects(LeftPinkyPalm.bounds) &&
-            RightIndexMiddle.bounds.Intersects(LeftPinkyPalm.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftPinkyPalm.bounds) &&
+            colliders.RightIndexMid.bounds.Intersects(colliders.LeftPinkyPalm.bounds))
         {
             Debug.Log("R");
             RSigned = true;
@@ -94,7 +90,7 @@ public class CollisionDetectionCons4 : MonoBehaviour
         }
 
         // S
-        if (RightIndexTip.bounds.Intersects(LeftPinkyBot.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftPinkyBot.bounds))
         {
             Debug.Log("S");
             SSigned = true;
@@ -106,7 +102,7 @@ public class CollisionDetectionCons4 : MonoBehaviour
         }
 
         // T
-        if (RightIndexTip.bounds.Intersects(LeftPinkyPalm.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftPinkyPalm.bounds))
         {
             Debug.Log("T");
             TSigned = true;

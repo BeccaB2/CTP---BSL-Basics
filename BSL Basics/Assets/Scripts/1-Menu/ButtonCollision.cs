@@ -9,8 +9,7 @@ public class ButtonCollision : MonoBehaviour {
     public Collider leftIndex;
     public Collider rightIndex;
 
-    // May remove
-    public GameObject parentForHands;
+    //public GameObject parentForHands;
 
     public GameObject leftHand;
     public GameObject rightHand;
@@ -44,7 +43,6 @@ public class ButtonCollision : MonoBehaviour {
         {
             leftIndex = null;
         }
-
     }
 
     private void LeftButtonPress()

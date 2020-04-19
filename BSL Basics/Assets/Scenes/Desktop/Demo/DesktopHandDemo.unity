@@ -3715,8 +3715,8 @@ GameObject:
   - component: {fileID: 1416683628}
   - component: {fileID: 1416683629}
   m_Layer: 0
-  m_Name: ThumbPalm
-  m_TagString: LeftThumbPalm
+  m_Name: ThumbCreaseFront
+  m_TagString: LeftThumbCreaseFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3763,9 +3763,11 @@ GameObject:
   - component: {fileID: 1429145472}
   - component: {fileID: 1429145471}
   - component: {fileID: 1429145475}
+  - component: {fileID: 1429145476}
+  - component: {fileID: 1429145478}
   m_Layer: 0
   m_Name: HandModels
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3800,6 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692d7eaa09fb2d043abde1f8b043a2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hands: {fileID: 0}
   ASigned: 0
   ESigned: 0
   ISigned: 0
@@ -3971,6 +3974,78 @@ MonoBehaviour:
   XSigned: 0
   YSigned: 0
   ZSigned: 0
+--- !u!114 &1429145476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429145466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0633cf120f5f2e541b78d57e917d3801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RightThumbTip: {fileID: 0}
+  RightThumbMid: {fileID: 0}
+  RightThumbBot: {fileID: 0}
+  RightIndexTip: {fileID: 0}
+  RightIndexMid: {fileID: 0}
+  RightIndexBot: {fileID: 0}
+  RightMiddleTip: {fileID: 0}
+  RightMiddleMid: {fileID: 0}
+  RightMiddleBot: {fileID: 0}
+  RightRingTip: {fileID: 0}
+  RightRingMid: {fileID: 0}
+  RightRingBot: {fileID: 0}
+  RightPinkyTip: {fileID: 0}
+  RightPinkyMid: {fileID: 0}
+  RightPinkyBot: {fileID: 0}
+  RightOpen: {fileID: 0}
+  RightClosed: {fileID: 0}
+  LeftThumbTip: {fileID: 0}
+  LeftThumbMid: {fileID: 0}
+  LeftThumbBot: {fileID: 0}
+  LeftIndexTip: {fileID: 0}
+  LeftIndexMid: {fileID: 0}
+  LeftIndexBot: {fileID: 0}
+  LeftMiddleTip: {fileID: 0}
+  LeftMiddleMid: {fileID: 0}
+  LeftMiddleBot: {fileID: 0}
+  LeftRingTip: {fileID: 0}
+  LeftRingMid: {fileID: 0}
+  LeftRingBot: {fileID: 0}
+  LeftPinkyTip: {fileID: 0}
+  LeftPinkyMid: {fileID: 0}
+  LeftPinkyBot: {fileID: 0}
+  LeftThumbCreaseFront: {fileID: 0}
+  LeftIndexPalm: {fileID: 0}
+  LeftPinkyPalm: {fileID: 0}
+  TouchpointZ: {fileID: 0}
+  LeftOpen: {fileID: 0}
+  LeftClosed: {fileID: 0}
+--- !u!114 &1429145478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429145466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efca19af0fb8b734bb92c93018506bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftThumbOpen: 0
+  LeftIndexOpen: 0
+  LeftMiddleOpen: 0
+  LeftRingOpen: 0
+  LeftPinkyOpen: 0
+  RightThumbOpen: 0
+  RightIndexOpen: 0
+  RightMiddleOpen: 0
+  RightRingOpen: 0
+  RightPinkyOpen: 0
+  LeftAllOpen: 0
+  RightAllOpen: 0
 --- !u!1 &1435219007
 GameObject:
   m_ObjectHideFlags: 0

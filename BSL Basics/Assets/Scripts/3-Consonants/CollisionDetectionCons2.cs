@@ -1,19 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionDetectionCons2 : MonoBehaviour
 {
-    Collider LeftThumbBot;
-    Collider LeftIndexMiddle;
-    Collider LeftMiddleTip;
-
-    Collider LeftThumbPalm;
-
-    Collider RightIndexTip;
-    Collider RightIndexMiddle;
-    Collider RightMiddleTip;
-    Collider RightPinkyTip;
+    GameObject hands;
+    FindColliders colliders;
 
     public bool GSigned;
     public bool HSigned;
@@ -33,15 +26,11 @@ public class CollisionDetectionCons2 : MonoBehaviour
 
     void Start()
     {
+        // Initialising booleans
         InitBools();
 
-        FindLeftColliders();
-        FindRightColliders();
-    }
-
-    void Update()
-    {
-        CheckCollision();
+        // Finding hands and colliders
+        FindHandsAndColliders();
     }
 
     private void InitBools()
@@ -63,28 +52,33 @@ public class CollisionDetectionCons2 : MonoBehaviour
         JEndPosition = false;
     }
 
-    private void FindRightColliders()
+    private void FindHandsAndColliders()
     {
-        RightIndexTip = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
-        RightIndexMiddle = GameObject.FindGameObjectWithTag("RightIndexMid").GetComponent<CapsuleCollider>();
-        RightMiddleTip = GameObject.FindGameObjectWithTag("RightMiddleTip").GetComponent<CapsuleCollider>();
-        RightPinkyTip = GameObject.FindGameObjectWithTag("RightPinkyTip").GetComponent<CapsuleCollider>();
+        // Finding the hand object
+        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
+            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        {
+            hands = GameObject.Find("LeapHandController");
+        }
+        else
+        {
+            hands = GameObject.Find("HandModels");
+        }
+
+        colliders = hands.GetComponent<FindColliders>();
     }
 
-    private void FindLeftColliders()
+    void Update()
     {
-        LeftThumbBot = GameObject.FindGameObjectWithTag("LeftThumbBot").GetComponent<CapsuleCollider>();
-        LeftIndexMiddle = GameObject.FindGameObjectWithTag("LeftIndexMid").GetComponent<CapsuleCollider>();
-        LeftMiddleTip = GameObject.FindGameObjectWithTag("LeftMiddleTip").GetComponent<CapsuleCollider>();
-
-        LeftThumbPalm = GameObject.FindGameObjectWithTag("LeftThumbPalm").GetComponent<CapsuleCollider>();
+        CheckCollision();
     }
 
     private void CheckCollision()
     {
         // G
         // Checking distance between the pinky and the thumb of both hands
-        float pinkyAndThumbDistanceG = Vector3.Distance(RightPinkyTip.transform.position, LeftThumbBot.transform.position);
+        float pinkyAndThumbDistanceG = Vector3.Distance(colliders.RightPinkyTip.transform.position, 
+                                                        colliders.LeftThumbBot.transform.position);
 
         //Maybe add colliders to each hand to check if fingers are closed???
         if (pinkyAndThumbDistanceG > 0.03 && pinkyAndThumbDistanceG < 0.04) 
@@ -102,7 +96,7 @@ public class CollisionDetectionCons2 : MonoBehaviour
         if(JStartPosition == false && JEndPosition == false)
         {
             // Checking to see if the start position is performed - resets if the end action isn't performed within a timeframe
-            if (RightIndexTip.bounds.Intersects(LeftThumbPalm.bounds))
+            if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbCreaseFront.bounds))
             {
                 HStartPosition = true;
                 StartCoroutine(ResetStartPosH());
@@ -131,7 +125,7 @@ public class CollisionDetectionCons2 : MonoBehaviour
         // J - will only run if H is not in process of being signed
         if (HStartPosition == false && HEndPosition == false)
         {
-            if (RightIndexTip.bounds.Intersects(LeftMiddleTip.bounds))
+            if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftMiddleTip.bounds))
             {
                 JStartPosition = true;
                 StartCoroutine(ResetStartPosJ());
@@ -157,7 +151,7 @@ public class CollisionDetectionCons2 : MonoBehaviour
         }
 
         // K
-        if (RightIndexMiddle.bounds.Intersects(LeftIndexMiddle.bounds))
+        if (colliders.RightIndexMid.bounds.Intersects(colliders.LeftIndexMid.bounds))
         {
             Debug.Log("K");
             KSigned = true;
@@ -176,7 +170,7 @@ public class CollisionDetectionCons2 : MonoBehaviour
         // Checking if the end position is reached
         while (HEndPosition == false && HStartPosition == true)
         {
-            if (RightMiddleTip.bounds.Intersects(LeftMiddleTip.bounds))
+            if (colliders.RightMiddleTip.bounds.Intersects(colliders.LeftMiddleTip.bounds))
             {
                 HEndPosition = true;
             }
@@ -189,7 +183,7 @@ public class CollisionDetectionCons2 : MonoBehaviour
     {
         while(JEndPosition == false && JStartPosition == true)
         {
-            if (RightIndexTip.bounds.Intersects(LeftThumbPalm.bounds))
+            if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbCreaseFront.bounds))
             {
                 JEndPosition = true;
             }

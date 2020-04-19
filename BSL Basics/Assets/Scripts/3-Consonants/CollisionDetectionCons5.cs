@@ -1,30 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionDetectionCons5 : MonoBehaviour
 {
-    Collider LeftThumbPalm;
-    Collider LeftIndexPalm;
-    Collider TouchpointZ;
-
-    Collider LeftIndexTip;
-
-    Collider LeftThumbMiddle;
-    Collider LeftIndexMiddle;
-    Collider LeftMiddleMid;
-    Collider LeftRingMiddle;
-    Collider LeftPinkyMiddle;
-
-    Collider RightIndexTip;
-    Collider RightMiddleTip;
-    Collider RightRingTip;
-
-    Collider RightThumbMiddle;
-    Collider RightIndexMiddle;
-    Collider RightMiddleMid;
-    Collider RightRingMiddle;
-    Collider RightPinkyMiddle;
+    GameObject hands;
+    FindColliders colliders;
 
     public bool VSigned;
     public bool WSigned;
@@ -40,6 +22,15 @@ public class CollisionDetectionCons5 : MonoBehaviour
 
     void Start()
     {
+        // Initialising booleans
+        InitBools();
+
+        // Finding hands and colliders
+        FindHandsAndColliders();
+    }
+
+    private void InitBools()
+    {
         VSigned = false;
         WSigned = false;
         XSigned = false;
@@ -51,9 +42,22 @@ public class CollisionDetectionCons5 : MonoBehaviour
         XPracticed = false;
         YPracticed = false;
         ZPracticed = false;
+    }
 
-        FindLeftColliders();
-        FindRightColliders();
+    private void FindHandsAndColliders()
+    {
+        // Finding the hand object
+        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
+            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        {
+            hands = GameObject.Find("LeapHandController");
+        }
+        else
+        {
+            hands = GameObject.Find("HandModels");
+        }
+
+        colliders = hands.GetComponent<FindColliders>();
     }
 
     void Update()
@@ -61,39 +65,11 @@ public class CollisionDetectionCons5 : MonoBehaviour
         CheckCollision();
     }
 
-    private void FindRightColliders()
-    {
-        RightIndexTip = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
-        RightMiddleTip = GameObject.FindGameObjectWithTag("RightMiddleTip").GetComponent<CapsuleCollider>();
-        RightRingTip = GameObject.FindGameObjectWithTag("RightRingTip").GetComponent<CapsuleCollider>();
-
-        RightThumbMiddle = GameObject.FindGameObjectWithTag("RightThumbMid").GetComponent<CapsuleCollider>();
-        RightIndexMiddle = GameObject.FindGameObjectWithTag("RightIndexMid").GetComponent<CapsuleCollider>();
-        RightMiddleMid = GameObject.FindGameObjectWithTag("RightMiddleMid").GetComponent<CapsuleCollider>();
-        RightRingMiddle = GameObject.FindGameObjectWithTag("RightRingMid").GetComponent<CapsuleCollider>();
-        RightPinkyMiddle = GameObject.FindGameObjectWithTag("RightPinkyMid").GetComponent<CapsuleCollider>();
-    }
-
-    private void FindLeftColliders()
-    {      
-        LeftThumbPalm = GameObject.FindGameObjectWithTag("LeftThumbPalm").GetComponent<CapsuleCollider>();
-        LeftIndexPalm = GameObject.FindGameObjectWithTag("LeftIndexPalm").GetComponent<BoxCollider>();
-        TouchpointZ = GameObject.FindGameObjectWithTag("TouchpointZ").GetComponent<BoxCollider>();
-
-        LeftIndexTip = GameObject.FindGameObjectWithTag("LeftIndexTip").GetComponent<CapsuleCollider>();
-
-        LeftThumbMiddle = GameObject.FindGameObjectWithTag("LeftThumbMid").GetComponent<CapsuleCollider>();
-        LeftIndexMiddle = GameObject.FindGameObjectWithTag("LeftIndexMid").GetComponent<CapsuleCollider>();
-        LeftMiddleMid = GameObject.FindGameObjectWithTag("LeftMiddleMid").GetComponent<CapsuleCollider>();
-        LeftRingMiddle = GameObject.FindGameObjectWithTag("LeftRingMid").GetComponent<CapsuleCollider>();
-        LeftPinkyMiddle = GameObject.FindGameObjectWithTag("LeftPinkyMid").GetComponent<CapsuleCollider>();
-    }
-
     private void CheckCollision()
     {
         // V
-        if (RightIndexTip.bounds.Intersects(LeftThumbPalm.bounds) &&
-            RightMiddleTip.bounds.Intersects(LeftIndexPalm.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbCreaseFront.bounds) &&
+            colliders.RightMiddleTip.bounds.Intersects(colliders.LeftIndexPalm.bounds))
         {
             Debug.Log("V");
             VSigned = true;
@@ -105,11 +81,11 @@ public class CollisionDetectionCons5 : MonoBehaviour
         }
 
         // W
-        if (RightThumbMiddle.bounds.Intersects(LeftThumbMiddle.bounds) &&
-            RightIndexMiddle.bounds.Intersects(LeftIndexMiddle.bounds) &&
-            RightMiddleMid.bounds.Intersects(LeftMiddleMid.bounds) &&
-            RightRingMiddle.bounds.Intersects(LeftRingMiddle.bounds) &&
-            RightPinkyMiddle.bounds.Intersects(LeftPinkyMiddle.bounds))
+        if (colliders.RightThumbMid.bounds.Intersects(colliders.LeftThumbMid.bounds) &&
+            colliders.RightIndexMid.bounds.Intersects(colliders.LeftIndexMid.bounds) &&
+            colliders.RightMiddleMid.bounds.Intersects(colliders.LeftMiddleMid.bounds) &&
+            colliders.RightRingMid.bounds.Intersects(colliders.LeftRingMid.bounds) &&
+            colliders.RightPinkyMid.bounds.Intersects(colliders.LeftPinkyMid.bounds))
         {
             Debug.Log("W");
             WSigned = true;
@@ -121,7 +97,7 @@ public class CollisionDetectionCons5 : MonoBehaviour
         }
 
         // X
-        if (RightIndexTip.bounds.Intersects(LeftIndexTip.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftIndexTip.bounds))
         {
             Debug.Log("X");
             XSigned = true;
@@ -132,8 +108,8 @@ public class CollisionDetectionCons5 : MonoBehaviour
             XSigned = false;
         }
 
-        // Y
-        if (RightIndexTip.bounds.Intersects(LeftThumbPalm.bounds))
+        // Y //CHANGE THE COLLIDER TO BACK???
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbCreaseFront.bounds))
         {
             Debug.Log("Y");
             YSigned = true;
@@ -145,9 +121,9 @@ public class CollisionDetectionCons5 : MonoBehaviour
         }
 
         // Z
-        if (RightIndexTip.bounds.Intersects(TouchpointZ.bounds) &&
-            RightMiddleTip.bounds.Intersects(TouchpointZ.bounds) &&
-            RightRingTip.bounds.Intersects(TouchpointZ.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.TouchpointZ.bounds) &&
+            colliders.RightMiddleTip.bounds.Intersects(colliders.TouchpointZ.bounds) &&
+            colliders.RightRingTip.bounds.Intersects(colliders.TouchpointZ.bounds))
         {
             Debug.Log("Z");
             ZSigned = true;

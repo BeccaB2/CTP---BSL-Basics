@@ -239,7 +239,6 @@
      <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\XRSupportUtil.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
-     <Compile Include="Assets\LetterConflictTesting.cs" />
      <Compile Include="Assets\Scripts\1-Menu\ButtonCollision.cs" />
      <Compile Include="Assets\Scripts\2-Vowels\CollisionDetectionVowels.cs" />
      <Compile Include="Assets\Scripts\2-Vowels\VowelTasks.cs" />
@@ -248,7 +247,10 @@
      <Compile Include="Assets\Scripts\3-Consonants\CollisionDetectionCons3.cs" />
      <Compile Include="Assets\Scripts\3-Consonants\CollisionDetectionCons4.cs" />
      <Compile Include="Assets\Scripts\3-Consonants\CollisionDetectionCons5.cs" />
+     <Compile Include="Assets\Scripts\Hands\FindColliders.cs" />
+     <Compile Include="Assets\Scripts\Hands\HandClosureChecking.cs" />
      <Compile Include="Assets\Scripts\TaskImages\ImageVisibility.cs" />
+     <Compile Include="Assets\Scripts\Testing\LetterConflictTesting.cs" />
      <Compile Include="Assets\Scripts\ToDelete\MightDelete\DisableTicks.cs" />
      <Compile Include="Assets\Scripts\ToDelete\MightDelete\QuestionMarkVisibility.cs" />
      <Compile Include="Assets\Scripts\ToDelete\MightDelete\ResetVowels.cs" />

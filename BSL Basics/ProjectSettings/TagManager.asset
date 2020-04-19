@@ -41,6 +41,7 @@ TagManager:
   - LeftIndexPalm
   - LeftPinkyPalm
   - TouchpointZ
+  - LeftThumbCreaseFront
   layers:
   - Default
   - TransparentFX

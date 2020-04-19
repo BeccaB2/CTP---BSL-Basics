@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionDetectionVowels : MonoBehaviour
 {
-    Collider RightIndexTip;
-
-    Collider LeftThumbTip;
-    Collider LeftIndexTip;
-    Collider LeftMiddleTip;
-    Collider LeftRingTip;
-    Collider LeftPinkyTip;
+    GameObject hands;
+    FindColliders colliders;
+    HandClosureChecking fingers;
 
     public bool ASigned;
     public bool ESigned;
@@ -26,6 +23,15 @@ public class CollisionDetectionVowels : MonoBehaviour
 
     void Start()
     {
+        // Initialising booleans
+        InitBools();
+
+        // Finding hand objects and collision scripts
+        FindHandsAndCollisionScripts();
+    }
+
+    private void InitBools()
+    {
         ASigned = false;
         ESigned = false;
         ISigned = false;
@@ -37,10 +43,26 @@ public class CollisionDetectionVowels : MonoBehaviour
         IPracticed = false;
         OPracticed = false;
         UPracticed = false;
-        
-        // Finds & assigns colliders to gameobject when in view - can also assign in the inspector
-        FindLeftColliders();
-        FindRightColliders();
+    }
+
+    private void FindHandsAndCollisionScripts()
+    {
+        // Finding the correct hand object - the hands have different names for desktop & VR
+        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
+            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        {
+            hands = GameObject.Find("LeapHandController");
+        }
+        else
+        {
+            hands = GameObject.Find("HandModels");
+        }
+
+        // Finding the colliders - can use only what we need
+        colliders = hands.GetComponent<FindColliders>();
+
+        // Finding the hand closure script
+        fingers = hands.GetComponent<HandClosureChecking>();
     }
 
     void Update()
@@ -49,27 +71,12 @@ public class CollisionDetectionVowels : MonoBehaviour
         CheckCollision();
     }
 
-    private void FindRightColliders()
-    {
-        //Debug.Log("RIGHT");
-        RightIndexTip = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
-    }
-
-    private void FindLeftColliders()
-    {
-        //Debug.Log("LEFT");
-        LeftThumbTip = GameObject.FindGameObjectWithTag("LeftThumbTip").GetComponent<CapsuleCollider>();
-        LeftIndexTip = GameObject.FindGameObjectWithTag("LeftIndexTip").GetComponent<CapsuleCollider>();
-        LeftMiddleTip = GameObject.FindGameObjectWithTag("LeftMiddleTip").GetComponent<CapsuleCollider>();
-        LeftRingTip = GameObject.FindGameObjectWithTag("LeftRingTip").GetComponent<CapsuleCollider>();
-        LeftPinkyTip = GameObject.FindGameObjectWithTag("LeftPinkyTip").GetComponent<CapsuleCollider>();
-    }
-
     private void CheckCollision()
     {
         // Checks if the two colliders intersect
         // A
-        if (RightIndexTip.bounds.Intersects(LeftThumbTip.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbTip.bounds) &&
+            fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("A");
             ASigned = true;
@@ -81,7 +88,8 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // E
-        if (RightIndexTip.bounds.Intersects(LeftIndexTip.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftIndexTip.bounds) &&
+            fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("E");         
             ESigned = true;
@@ -93,7 +101,8 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // I
-        if (RightIndexTip.bounds.Intersects(LeftMiddleTip.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftMiddleTip.bounds) &&
+            fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("I");
             ISigned = true;
@@ -105,7 +114,8 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // O 
-        if (RightIndexTip.bounds.Intersects(LeftRingTip.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftRingTip.bounds) &&
+            fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("O");
             OSigned = true;
@@ -117,7 +127,8 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // U
-        if (RightIndexTip.bounds.Intersects(LeftPinkyTip.bounds))
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftPinkyTip.bounds) &&
+            fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("U");
             USigned = true;
