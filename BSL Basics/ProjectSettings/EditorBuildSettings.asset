@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Mounted_VR/VowelPracticeVR.unity
     guid: 9c0b4d5ce4a80f94aa778fda76403d9f
+  - enabled: 0
+    path: Assets/Scenes/Desktop/Demo/DesktopHandDemo.unity
+    guid: 797b6a668867fb942bf710ae73718483
   m_configObjects: {}
