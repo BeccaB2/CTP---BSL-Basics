@@ -24,7 +24,12 @@ public class FindColliders : MonoBehaviour
     public Collider RightPinkyMid;
     public Collider RightPinkyBot;
 
-    public Collider RightOpen;
+    public Collider RightIndexKnuckle;
+    public Collider RightMiddleKnuckle;
+    public Collider RightRingKnuckle;
+    public Collider RightPinkyKnuckle;
+
+    //public Collider RightOpen;
     public Collider RightClosed;
 
     public Collider LeftThumbTip;
@@ -55,7 +60,12 @@ public class FindColliders : MonoBehaviour
     public Collider TouchpointZ;
     //
 
-    public Collider LeftOpen;
+    public Collider LeftIndexKnuckle;
+    public Collider LeftMiddleKnuckle;
+    public Collider LeftRingKnuckle;
+    public Collider LeftPinkyKnuckle;
+
+    //public Collider LeftOpen;
     public Collider LeftClosed;
 
     // Use this for initialization
@@ -114,6 +124,12 @@ public class FindColliders : MonoBehaviour
     private void RightOther()
     {
         //RightOpen = GameObject.FindGameObjectWithTag("").GetComponent<CapsuleCollider>();
+
+        RightIndexKnuckle = GameObject.FindGameObjectWithTag("RightIndexKnuckle").GetComponent<CapsuleCollider>();
+        RightMiddleKnuckle = GameObject.FindGameObjectWithTag("RightMiddleKnuckle").GetComponent<CapsuleCollider>();
+        RightRingKnuckle = GameObject.FindGameObjectWithTag("RightRingKnuckle").GetComponent<CapsuleCollider>();
+        RightPinkyKnuckle = GameObject.FindGameObjectWithTag("RightPinkyKnuckle").GetComponent<CapsuleCollider>();
+
         RightClosed = GameObject.FindGameObjectWithTag("ClosedFingersRight").GetComponent<BoxCollider>();
     }
 
@@ -172,6 +188,11 @@ public class FindColliders : MonoBehaviour
         LeftPinkyPalm = GameObject.FindGameObjectWithTag("LeftPinkyPalm").GetComponent<BoxCollider>();
         TouchpointZ = GameObject.FindGameObjectWithTag("TouchpointZ").GetComponent<BoxCollider>();
         //
+
+        LeftIndexKnuckle = GameObject.FindGameObjectWithTag("LeftIndexKnuckle").GetComponent<CapsuleCollider>();
+        LeftMiddleKnuckle = GameObject.FindGameObjectWithTag("LeftMiddleKnuckle").GetComponent<CapsuleCollider>();
+        LeftRingKnuckle = GameObject.FindGameObjectWithTag("LeftRingKnuckle").GetComponent<CapsuleCollider>();
+        LeftPinkyKnuckle = GameObject.FindGameObjectWithTag("LeftPinkyKnuckle").GetComponent<CapsuleCollider>();
 
         //LeftOpen = GameObject.FindGameObjectWithTag("").GetComponent<CapsuleCollider>();
         LeftClosed = GameObject.FindGameObjectWithTag("ClosedFingersLeft").GetComponent<BoxCollider>();

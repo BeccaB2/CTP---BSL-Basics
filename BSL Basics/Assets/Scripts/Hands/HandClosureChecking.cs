@@ -100,7 +100,7 @@ public class HandClosureChecking : MonoBehaviour
             LeftIndexOpen == false && LeftMiddleOpen == false && 
             LeftRingOpen == false &&  LeftPinkyOpen == false)
         {
-            Debug.Log("CLOSED HAND - LEFT");
+            //Debug.Log("CLOSED HAND - LEFT");
             LeftAllClosed = true;
             RightAllOpen = false;
         }
@@ -123,7 +123,7 @@ public class HandClosureChecking : MonoBehaviour
         // Thumb
         if (colliders.LeftThumbTip.bounds.Intersects(colliders.LeftClosed.bounds))
         {
-            Debug.Log("CLOSED LEFT THUMB");
+            //Debug.Log("CLOSED LEFT THUMB");
             LeftThumbOpen = false;
         }
         else
@@ -134,7 +134,7 @@ public class HandClosureChecking : MonoBehaviour
         // Index
         if (colliders.LeftIndexTip.bounds.Intersects(colliders.LeftClosed.bounds))
         {
-            Debug.Log("CLOSED LEFT INDEX");
+            //Debug.Log("CLOSED LEFT INDEX");
             LeftIndexOpen = false;
         }
         else
@@ -145,7 +145,7 @@ public class HandClosureChecking : MonoBehaviour
         // Middle
         if (colliders.LeftMiddleTip.bounds.Intersects(colliders.LeftClosed.bounds))
         {
-            Debug.Log("CLOSED LEFT MIDDLE");
+            //Debug.Log("CLOSED LEFT MIDDLE");
             LeftMiddleOpen = false;
         }
         else
@@ -156,7 +156,7 @@ public class HandClosureChecking : MonoBehaviour
         // Ring
         if (colliders.LeftRingTip.bounds.Intersects(colliders.LeftClosed.bounds))
         {
-            Debug.Log("CLOSED LEFT RING");
+            //Debug.Log("CLOSED LEFT RING");
             LeftRingOpen = false;
         }
         else
@@ -167,7 +167,7 @@ public class HandClosureChecking : MonoBehaviour
         // Pinky
         if (colliders.LeftPinkyTip.bounds.Intersects(colliders.LeftClosed.bounds))
         {
-            Debug.Log("CLOSED LEFT PINKY");
+            //Debug.Log("CLOSED LEFT PINKY");
             LeftPinkyOpen = false;
         }
         else
@@ -184,7 +184,7 @@ public class HandClosureChecking : MonoBehaviour
             RightIndexOpen == false && RightMiddleOpen == false && 
             RightRingOpen == false && RightPinkyOpen == false)
         {
-            Debug.Log("CLOSED HAND - RIGHT");
+            //Debug.Log("CLOSED HAND - RIGHT");
             RightAllClosed = true;
             RightAllOpen = false;
         }
@@ -207,7 +207,7 @@ public class HandClosureChecking : MonoBehaviour
         // Thumb
         if (colliders.RightThumbTip.bounds.Intersects(colliders.RightClosed.bounds))
         {
-            Debug.Log("CLOSED RIGHT THUMB");
+            //Debug.Log("CLOSED RIGHT THUMB");
             RightThumbOpen = false;
         }
         else
@@ -218,7 +218,7 @@ public class HandClosureChecking : MonoBehaviour
         // Index
         if (colliders.RightIndexTip.bounds.Intersects(colliders.RightClosed.bounds))
         {
-            Debug.Log("CLOSED RIGHT INDEX");
+            //Debug.Log("CLOSED RIGHT INDEX");
             RightIndexOpen = false;
         }
         else
@@ -229,7 +229,7 @@ public class HandClosureChecking : MonoBehaviour
         // Middle
         if (colliders.RightMiddleTip.bounds.Intersects(colliders.RightClosed.bounds))
         {
-            Debug.Log("CLOSED RIGHT MIDDLE");
+            //Debug.Log("CLOSED RIGHT MIDDLE");
             RightMiddleOpen = false;
         }
         else
@@ -240,7 +240,7 @@ public class HandClosureChecking : MonoBehaviour
         // Ring
         if (colliders.RightRingTip.bounds.Intersects(colliders.RightClosed.bounds))
         {
-            Debug.Log("CLOSED RIGHT RING");
+            //Debug.Log("CLOSED RIGHT RING");
             RightRingOpen = false;
         }
         else
@@ -251,7 +251,7 @@ public class HandClosureChecking : MonoBehaviour
         // Pinky
         if (colliders.RightPinkyTip.bounds.Intersects(colliders.RightClosed.bounds))
         {
-            Debug.Log("CLOSED RIGHT PINKY");
+            //Debug.Log("CLOSED RIGHT PINKY");
             RightPinkyOpen = false;
         }
         else
@@ -260,7 +260,7 @@ public class HandClosureChecking : MonoBehaviour
         }
 
         // Checking if only index is open
-        if(RightThumbOpen == false && RightMiddleOpen == false && 
+        if(/*RightThumbOpen == false &&*/ RightMiddleOpen == false && 
            RightRingOpen == false && RightPinkyOpen == false && RightIndexOpen == true)
         {
             OnlyRightIndexOpen = true;

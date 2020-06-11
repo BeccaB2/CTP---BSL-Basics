@@ -42,6 +42,14 @@ TagManager:
   - LeftPinkyPalm
   - TouchpointZ
   - LeftThumbCreaseFront
+  - LeftIndexKnuckle
+  - LeftMiddleKnuckle
+  - LeftRingKnuckle
+  - LeftPinkyKnuckle
+  - RightIndexKnuckle
+  - RightMiddleKnuckle
+  - RightRingKnuckle
+  - RightPinkyKnuckle
   layers:
   - Default
   - TransparentFX

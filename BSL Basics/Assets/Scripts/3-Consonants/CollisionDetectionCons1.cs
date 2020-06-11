@@ -10,6 +10,7 @@ public class CollisionDetectionCons1 : MonoBehaviour
     GameObject hands;
 
     FindColliders colliders;
+    HandClosureChecking fingers;
 
     public bool BSigned;
     public bool CSigned;
@@ -27,7 +28,7 @@ public class CollisionDetectionCons1 : MonoBehaviour
         InitBools();
 
         // Finding hand objects and collider scripts
-        FindHandsAndColliders();
+        FindHandsAndCollisionScripts();
     }
 
     private void InitBools()
@@ -43,7 +44,7 @@ public class CollisionDetectionCons1 : MonoBehaviour
         FPracticed = false;
     }
 
-    private void FindHandsAndColliders()
+    private void FindHandsAndCollisionScripts()
     {
         // Finding the overall hand object
         if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
@@ -59,6 +60,9 @@ public class CollisionDetectionCons1 : MonoBehaviour
         // Colliders for each hand
         colliders = hands.GetComponent<FindColliders>();
 
+        // Finding the hand closure script
+        fingers = hands.GetComponent<HandClosureChecking>();
+
         // Seperate hands
         leftHand = GameObject.Find("RigidRoundHand_L");
         rightHand = GameObject.Find("RigidRoundHand_R");
@@ -71,15 +75,42 @@ public class CollisionDetectionCons1 : MonoBehaviour
 
     private void CheckCollision()
     {
-        // B - Janky
-        if (colliders.LeftIndexTip.bounds.Intersects(colliders.RightIndexTip.bounds) &&
-            colliders.LeftThumbTip.bounds.Intersects(colliders.RightThumbTip.bounds) &&
+        // B
+
+        //Ray ray = Camera.main.ScreenPointToRay();
+        //RaycastHit hit;
+
+        //if (Physics.Raycast(ray, out hit, 100))
+        //    Debug.DrawLine(ray.origin, hit.point);
+
+        RaycastHit hit;
+        Ray ray = new Ray(colliders.LeftIndexKnuckle.transform.position, transform.forward);
+        //colliders.LeftIndexMid.transform.position
+
+        //Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Debug.DrawRay(colliders.LeftIndexKnuckle.transform.position, Vector3.right /*transform.up*/, Color.red);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider == colliders.RightIndexKnuckle)
+            {
+                //hit.collider.enabled = false;
+                Debug.Log("YESS");
+            }
+        }
+
+            if (/*colliders.LeftIndexTip.bounds.Intersects(colliders.RightIndexTip.bounds) &&
+            colliders.LeftThumbTip.bounds.Intersects(colliders.RightThumbTip.bounds) &&*/
             colliders.LeftIndexTip.bounds.Intersects(colliders.LeftThumbTip.bounds) &&
-            colliders.RightIndexTip.bounds.Intersects(colliders.RightThumbTip.bounds))
+            colliders.RightIndexTip.bounds.Intersects(colliders.RightThumbTip.bounds) && 
+            fingers.LeftAllClosed == false && fingers.RightAllClosed == false)
         {
             Debug.Log("B");
             BSigned = true;
             BPracticed = true;
+
+            //Debug.DrawLine(colliders.LeftIndexMid.transform.position, colliders.RightIndexMid.transform.position,Color.blue,10);
         }
         else
         {
