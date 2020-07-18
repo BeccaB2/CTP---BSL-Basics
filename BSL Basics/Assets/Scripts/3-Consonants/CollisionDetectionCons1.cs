@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Leap;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -100,8 +101,8 @@ public class CollisionDetectionCons1 : MonoBehaviour
             }
         }
 
-            if (/*colliders.LeftIndexTip.bounds.Intersects(colliders.RightIndexTip.bounds) &&
-            colliders.LeftThumbTip.bounds.Intersects(colliders.RightThumbTip.bounds) &&*/
+        if (colliders.LeftIndexTip.bounds.Intersects(colliders.RightIndexTip.bounds) &&
+            colliders.LeftThumbTip.bounds.Intersects(colliders.RightThumbTip.bounds) &&
             colliders.LeftIndexTip.bounds.Intersects(colliders.LeftThumbTip.bounds) &&
             colliders.RightIndexTip.bounds.Intersects(colliders.RightThumbTip.bounds) && 
             fingers.LeftAllClosed == false && fingers.RightAllClosed == false)
@@ -120,9 +121,9 @@ public class CollisionDetectionCons1 : MonoBehaviour
         // C - Checking distance between thumb and index on right hand (ALWAYS RECOGINISED ATM)
         float rightThumbAndIndexDistanceC = Vector3.Distance(colliders.RightIndexTip.transform.position, colliders.RightThumbTip.transform.position);
 
-        if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 && 
-            rightHand.activeInHierarchy == true && 
-            leftHand.activeInHierarchy == false)
+        if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
+            rightHand.activeInHierarchy == true && fingers.RightMiddleOpen == false &&
+            fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
         {
             Debug.Log("C");
             CSigned = true;

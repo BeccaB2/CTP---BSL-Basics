@@ -75,7 +75,7 @@ public class CollisionDetectionVowels : MonoBehaviour
     {
         // Checks if the two colliders intersect
         // A
-        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftThumbTip.bounds) &&
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.VowelA.bounds) &&
             fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("A");
@@ -88,7 +88,7 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // E
-        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftIndexTip.bounds) &&
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.VowelE.bounds) &&
             fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("E");         
@@ -101,7 +101,7 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // I
-        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftMiddleTip.bounds) &&
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.VowelI.bounds) &&
             fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("I");
@@ -114,7 +114,7 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // O 
-        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftRingTip.bounds) &&
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.VowelO.bounds) &&
             fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("O");
@@ -127,7 +127,7 @@ public class CollisionDetectionVowels : MonoBehaviour
         }
 
         // U
-        if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftPinkyTip.bounds) &&
+        if (colliders.RightIndexTip.bounds.Intersects(colliders.VowelU.bounds) &&
             fingers.LeftAllOpen == true && fingers.OnlyRightIndexOpen == true)
         {
             Debug.Log("U");

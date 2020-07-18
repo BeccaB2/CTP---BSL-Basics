@@ -50,6 +50,11 @@ TagManager:
   - RightMiddleKnuckle
   - RightRingKnuckle
   - RightPinkyKnuckle
+  - ATip
+  - ETip
+  - ITip
+  - OTip
+  - UTip
   layers:
   - Default
   - TransparentFX

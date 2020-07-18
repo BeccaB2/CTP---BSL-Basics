@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Desktop/Demo/DesktopHandDemo.unity
+- path: Assets/Scenes/Mounted_VR/Demo/MountedHandDemo.unity
   isLoaded: 1
   isActive: 1
