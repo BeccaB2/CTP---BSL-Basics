@@ -118,7 +118,7 @@ public class CollisionDetectionCons1 : MonoBehaviour
         // C - Checking distance between thumb and index on right hand (ALWAYS RECOGINISED ATM)
         float rightThumbAndIndexDistanceC = Vector3.Distance(colliders.RightIndexTip.transform.position, colliders.RightThumbTip.transform.position);
 
-        if (rightHand.activeInHierarchy == true && leftHand.activeInHierarchy == false)
+        if (rightHand.activeInHierarchy == true /*&& leftHand.activeInHierarchy == false*/)
         {
             if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
                 fingers.RightMiddleOpen == false && fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
@@ -132,20 +132,24 @@ public class CollisionDetectionCons1 : MonoBehaviour
                 CSigned = false;
             }
         }
-        else if(leftHand.activeInHierarchy == true && rightHand.activeInHierarchy == true)
+        else if(rightHand.activeInHierarchy == false)
         {
-            if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
-                fingers.RightMiddleOpen == false && fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
-            {
-                Debug.Log("C");
-                CSigned = true;
-                CPracticed = true;
-            }
-            else
-            {
-                CSigned = false;
-            }
+            CSigned = false;
         }
+        //else if(leftHand.activeInHierarchy == true && rightHand.activeInHierarchy == true)
+        //{
+        //    if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
+        //        fingers.RightMiddleOpen == false && fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
+        //    {
+        //        Debug.Log("C");
+        //        CSigned = true;
+        //        CPracticed = true;
+        //    }
+        //    else
+        //    {
+        //        CSigned = false;
+        //    }
+        //}
 
         // D - Janky
         if (colliders.RightIndexTip.bounds.Intersects(colliders.LeftIndexTip.bounds) &&
