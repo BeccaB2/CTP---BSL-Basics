@@ -80,16 +80,13 @@ public class CollisionDetectionCons1 : MonoBehaviour
 
         //Ray ray = Camera.main.ScreenPointToRay();
         //RaycastHit hit;
-
         //if (Physics.Raycast(ray, out hit, 100))
         //    Debug.DrawLine(ray.origin, hit.point);
+        //colliders.LeftIndexMid.transform.position
+        //Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
         Ray ray = new Ray(colliders.LeftIndexKnuckle.transform.position, transform.forward);
-        //colliders.LeftIndexMid.transform.position
-
-        //Camera.main.ScreenPointToRay(Input.mousePosition);
-
         Debug.DrawRay(colliders.LeftIndexKnuckle.transform.position, Vector3.right /*transform.up*/, Color.red);
 
         if (Physics.Raycast(ray, out hit))
@@ -121,17 +118,33 @@ public class CollisionDetectionCons1 : MonoBehaviour
         // C - Checking distance between thumb and index on right hand (ALWAYS RECOGINISED ATM)
         float rightThumbAndIndexDistanceC = Vector3.Distance(colliders.RightIndexTip.transform.position, colliders.RightThumbTip.transform.position);
 
-        if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
-            rightHand.activeInHierarchy == true && fingers.RightMiddleOpen == false &&
-            fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
+        if (rightHand.activeInHierarchy == true && leftHand.activeInHierarchy == false)
         {
-            Debug.Log("C");
-            CSigned = true;
-            CPracticed = true;
+            if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
+                fingers.RightMiddleOpen == false && fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
+            {
+                Debug.Log("C");
+                CSigned = true;
+                CPracticed = true;
+            }
+            else
+            {
+                CSigned = false;
+            }
         }
-        else
+        else if(leftHand.activeInHierarchy == true && rightHand.activeInHierarchy == true)
         {
-            CSigned = false;
+            if (rightThumbAndIndexDistanceC > 0.04 && rightThumbAndIndexDistanceC < 0.07 &&
+                fingers.RightMiddleOpen == false && fingers.RightRingOpen == false && fingers.RightPinkyOpen == false)
+            {
+                Debug.Log("C");
+                CSigned = true;
+                CPracticed = true;
+            }
+            else
+            {
+                CSigned = false;
+            }
         }
 
         // D - Janky

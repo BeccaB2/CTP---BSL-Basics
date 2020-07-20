@@ -76,21 +76,23 @@ public class FindColliders : MonoBehaviour
     //public Collider LeftOpen;
     public Collider LeftClosed;
 
-    public GameObject hands;
-    public GameObject left;
-    public GameObject right;
+    GameObject hands;
+    //GameObject left;
+    //GameObject right;
 
-    public GameObject leftThumb;
-    public GameObject leftIndex;
-    public GameObject leftMid;
-    public GameObject leftRing;
-    public GameObject leftPinky;
+    //GameObject leftThumb;
+    //GameObject leftIndex;
+    //GameObject leftMid;
+    //GameObject leftRing;
+    //GameObject leftPinky;
+    //GameObject leftPalm;
 
-    public GameObject rightThumb;
-    public GameObject rightIndex;
-    public GameObject rightMid;
-    public GameObject rightRing;
-    public GameObject rightPinky;
+    //GameObject rightThumb;
+    //GameObject rightIndex;
+    //GameObject rightMid;
+    //GameObject rightRing;
+    //GameObject rightPinky;
+    //GameObject rightPalm;
 
     // Use this for initialization
     void Start()
@@ -105,20 +107,26 @@ public class FindColliders : MonoBehaviour
             hands = GameObject.Find("HandModels");
         }
 
-        left = hands.transform.Find("RigidRoundHand_L").gameObject;
-        right = hands.transform.Find("RigidRoundHand_R").gameObject;
+        // Maybe change below to similar??
+        //hands = GameObject.Find("LeapHandController");
+        //right = hands.transform.Find("RigidRoundHand_R");
 
-        leftThumb = left.transform.Find("thumb").gameObject;
-        leftIndex = left.transform.Find("index").gameObject;
-        leftMid = left.transform.Find("middle").gameObject;
-        leftRing = left.transform.Find("ring").gameObject;
-        leftPinky = left.transform.Find("pinky").gameObject;
+        //left = GameObject.Find("RigidRoundHand_L");
+        //right = GameObject.Find("RigidRoundHand_R");
 
-        rightThumb = right.transform.Find("thumb").gameObject;
-        rightIndex = right.transform.Find("index").gameObject;
-        rightMid = right.transform.Find("middle").gameObject;
-        rightRing = right.transform.Find("ring").gameObject;
-        rightPinky = right.transform.Find("pinky").gameObject;
+        //leftThumb = GameObject.Find("thumb");
+        //leftIndex = GameObject.Find("index");
+        //leftMid = GameObject.Find("middle");
+        //leftRing = GameObject.Find("ring");
+        //leftPinky = GameObject.Find("pinky");
+        //leftPalm = GameObject.Find("palm");
+
+        //rightThumb = GameObject.Find("thumb");
+        //rightIndex = GameObject.Find("index");
+        //rightMid = GameObject.Find("middle");
+        //rightRing = GameObject.Find("ring");
+        //rightPinky = GameObject.Find("pinky");
+        //rightPalm = GameObject.Find("palm");
 
         FindLeftColliders();
         FindRightColliders();
@@ -137,77 +145,78 @@ public class FindColliders : MonoBehaviour
 
     private void RightThumb()
     {
-        RightThumbTip = rightThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
-        RightThumbMid = rightThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
-        RightThumbBot = rightThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
+        //RightThumbTip = rightThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //RightThumbMid = rightThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //RightThumbBot = rightThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
 
         //RightThumbTip = this.transform.Find("RightThumbTip").GetComponent<CapsuleCollider>();
         //RightThumbTip = hands.transform.Find("RightThumbTip").GetComponent<CapsuleCollider>();
-        //RightThumbTip = GameObject.FindGameObjectWithTag("RightThumbTip").GetComponent<CapsuleCollider>();
 
-        //RightThumbMid = GameObject.FindGameObjectWithTag("RightThumbMid").GetComponent<CapsuleCollider>();
-        //RightThumbBot = GameObject.FindGameObjectWithTag("RightThumbBot").GetComponent<CapsuleCollider>();
+        RightThumbTip = GameObject.FindGameObjectWithTag("RightThumbTip").GetComponent<CapsuleCollider>();
+        RightThumbMid = GameObject.FindGameObjectWithTag("RightThumbMid").GetComponent<CapsuleCollider>();
+        RightThumbBot = GameObject.FindGameObjectWithTag("RightThumbBot").GetComponent<CapsuleCollider>();
     }
 
     private void RightIndex()
     {
-        RightIndexTip = rightIndex.transform.Find("bone3").GetComponent<CapsuleCollider>();
-        RightIndexMid = rightIndex.transform.Find("bone2").GetComponent<CapsuleCollider>();
-        RightIndexBot = rightIndex.transform.Find("bone1").GetComponent<CapsuleCollider>();
+        //RightIndexTip = rightIndex.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //RightIndexMid = rightIndex.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //RightIndexBot = rightIndex.transform.Find("bone1").GetComponent<CapsuleCollider>();
 
-        //RightIndexTip = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
-        //RightIndexMid = GameObject.FindGameObjectWithTag("RightIndexMid").GetComponent<CapsuleCollider>();
-        //RightIndexBot = GameObject.FindGameObjectWithTag("RightIndexBot").GetComponent<CapsuleCollider>();
+        RightIndexTip = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
+        RightIndexMid = GameObject.FindGameObjectWithTag("RightIndexMid").GetComponent<CapsuleCollider>();
+        RightIndexBot = GameObject.FindGameObjectWithTag("RightIndexBot").GetComponent<CapsuleCollider>();
     }
 
     private void RightMiddle()
     {
-        RightMiddleTip = rightMid.transform.Find("bone3").GetComponent<CapsuleCollider>();
-        RightMiddleMid = rightMid.transform.Find("bone2").GetComponent<CapsuleCollider>();
-        RightMiddleBot = rightMid.transform.Find("bone1").GetComponent<CapsuleCollider>();
+        //RightMiddleTip = rightMid.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //RightMiddleMid = rightMid.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //RightMiddleBot = rightMid.transform.Find("bone1").GetComponent<CapsuleCollider>();
 
-        //RightMiddleTip = GameObject.FindGameObjectWithTag("RightMiddleTip").GetComponent<CapsuleCollider>();
-        //RightMiddleMid = GameObject.FindGameObjectWithTag("RightMiddleMid").GetComponent<CapsuleCollider>();
-        //RightMiddleBot = GameObject.FindGameObjectWithTag("RightMiddleBot").GetComponent<CapsuleCollider>();
+        RightMiddleTip = GameObject.FindGameObjectWithTag("RightMiddleTip").GetComponent<CapsuleCollider>();
+        RightMiddleMid = GameObject.FindGameObjectWithTag("RightMiddleMid").GetComponent<CapsuleCollider>();
+        RightMiddleBot = GameObject.FindGameObjectWithTag("RightMiddleBot").GetComponent<CapsuleCollider>();
     }
 
     private void RightRing()
     {
-        RightRingTip = rightRing.transform.Find("bone3").GetComponent<CapsuleCollider>();
-        RightRingMid = rightRing.transform.Find("bone2").GetComponent<CapsuleCollider>();
-        RightRingBot = rightRing.transform.Find("bone1").GetComponent<CapsuleCollider>();
+        //RightRingTip = rightRing.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //RightRingMid = rightRing.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //RightRingBot = rightRing.transform.Find("bone1").GetComponent<CapsuleCollider>();
 
-        //RightRingTip = GameObject.FindGameObjectWithTag("RightRingTip").GetComponent<CapsuleCollider>();
-        //RightRingMid = GameObject.FindGameObjectWithTag("RightRingMid").GetComponent<CapsuleCollider>();
-        //RightRingBot = GameObject.FindGameObjectWithTag("RightRingBot").GetComponent<CapsuleCollider>();
+        RightRingTip = GameObject.FindGameObjectWithTag("RightRingTip").GetComponent<CapsuleCollider>();
+        RightRingMid = GameObject.FindGameObjectWithTag("RightRingMid").GetComponent<CapsuleCollider>();
+        RightRingBot = GameObject.FindGameObjectWithTag("RightRingBot").GetComponent<CapsuleCollider>();
     }
 
     private void RightPinky()
     {
-        RightPinkyTip = rightPinky.transform.Find("bone3").GetComponent<CapsuleCollider>();
-        RightPinkyMid = rightPinky.transform.Find("bone2").GetComponent<CapsuleCollider>();
-        RightPinkyBot = rightPinky.transform.Find("bone1").GetComponent<CapsuleCollider>();
+        //RightPinkyTip = rightPinky.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //RightPinkyMid = rightPinky.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //RightPinkyBot = rightPinky.transform.Find("bone1").GetComponent<CapsuleCollider>();
 
-        //RightPinkyTip = GameObject.FindGameObjectWithTag("RightPinkyTip").GetComponent<CapsuleCollider>();
-        //RightPinkyMid = GameObject.FindGameObjectWithTag("RightPinkyMid").GetComponent<CapsuleCollider>();
-        //RightPinkyBot = GameObject.FindGameObjectWithTag("RightPinkyBot").GetComponent<CapsuleCollider>();
+        RightPinkyTip = GameObject.FindGameObjectWithTag("RightPinkyTip").GetComponent<CapsuleCollider>();
+        RightPinkyMid = GameObject.FindGameObjectWithTag("RightPinkyMid").GetComponent<CapsuleCollider>();
+        RightPinkyBot = GameObject.FindGameObjectWithTag("RightPinkyBot").GetComponent<CapsuleCollider>();
     }
 
     private void RightOther()
     {
-        //RightOpen = GameObject.FindGameObjectWithTag("").GetComponent<CapsuleCollider>();
+        //RightIndexKnuckle = rightIndex.transform.Find("IndexKnuckle").GetComponent<CapsuleCollider>();
+        //RightMiddleKnuckle = rightMid.transform.Find("MidKnuckle").GetComponent<CapsuleCollider>();
+        //RightRingKnuckle = rightRing.transform.Find("RingKnuckle").GetComponent<CapsuleCollider>();
+        //RightPinkyKnuckle = rightPinky.transform.Find("PinkyKnuckle").GetComponent<CapsuleCollider>();
 
-        RightIndexKnuckle = rightIndex.transform.Find("IndexKnuckle").GetComponent<CapsuleCollider>();
-        RightMiddleKnuckle = rightMid.transform.Find("MidKnuckle").GetComponent<CapsuleCollider>();
-        RightRingKnuckle = rightRing.transform.Find("RingKnuckle").GetComponent<CapsuleCollider>();
-        RightPinkyKnuckle = rightPinky.transform.Find("PinkyKnuckle").GetComponent<CapsuleCollider>();
+        //RightClosed = rightPalm.transform.Find("ClosedFingersRight").GetComponent<BoxCollider>();
 
-        //RightIndexKnuckle = GameObject.FindGameObjectWithTag("RightIndexKnuckle").GetComponent<CapsuleCollider>();
-        //RightMiddleKnuckle = GameObject.FindGameObjectWithTag("RightMiddleKnuckle").GetComponent<CapsuleCollider>();
-        //RightRingKnuckle = GameObject.FindGameObjectWithTag("RightRingKnuckle").GetComponent<CapsuleCollider>();
-        //RightPinkyKnuckle = GameObject.FindGameObjectWithTag("RightPinkyKnuckle").GetComponent<CapsuleCollider>();
+        RightIndexKnuckle = GameObject.FindGameObjectWithTag("RightIndexKnuckle").GetComponent<CapsuleCollider>();
+        RightMiddleKnuckle = GameObject.FindGameObjectWithTag("RightMiddleKnuckle").GetComponent<CapsuleCollider>();
+        RightRingKnuckle = GameObject.FindGameObjectWithTag("RightRingKnuckle").GetComponent<CapsuleCollider>();
+        RightPinkyKnuckle = GameObject.FindGameObjectWithTag("RightPinkyKnuckle").GetComponent<CapsuleCollider>();
 
         RightClosed = GameObject.FindGameObjectWithTag("ClosedFingersRight").GetComponent<BoxCollider>();
+        //RightOpen = GameObject.FindGameObjectWithTag("").GetComponent<CapsuleCollider>();
     }
 
     private void FindLeftColliders()
@@ -223,9 +232,12 @@ public class FindColliders : MonoBehaviour
 
     private void LeftThumb()
     {
+        //LeftThumbTip = leftThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //LeftThumbMid = leftThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //LeftThumbBot = leftThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
+
         //LeftThumbTip = hands.transform.Find("LeftThumbTip").GetComponent<CapsuleCollider>();
         //LeftThumbTip = this.transform.Find("LeftThumbTip").GetComponent<CapsuleCollider>();
-        //LeftThumbTip = hands.transform.Find("LeftThumbTip").GetComponent<CapsuleCollider>();
 
         LeftThumbTip = GameObject.FindGameObjectWithTag("LeftThumbTip").GetComponent<CapsuleCollider>();
         LeftThumbMid = GameObject.FindGameObjectWithTag("LeftThumbMid").GetComponent<CapsuleCollider>();
@@ -234,6 +246,10 @@ public class FindColliders : MonoBehaviour
 
     private void LeftIndex()
     {
+        //LeftIndexTip = leftThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //LeftIndexMid = leftThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //LeftIndexBot = leftThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
+
         LeftIndexTip = GameObject.FindGameObjectWithTag("LeftIndexTip").GetComponent<CapsuleCollider>();
         LeftIndexMid = GameObject.FindGameObjectWithTag("LeftIndexMid").GetComponent<CapsuleCollider>();
         LeftIndexBot = GameObject.FindGameObjectWithTag("LeftIndexBot").GetComponent<CapsuleCollider>();
@@ -241,6 +257,10 @@ public class FindColliders : MonoBehaviour
 
     private void LeftMiddle()
     {
+        //LeftMiddleTip = leftThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //LeftMiddleMid = leftThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //LeftMiddleBot = leftThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
+
         LeftMiddleTip = GameObject.FindGameObjectWithTag("LeftMiddleTip").GetComponent<CapsuleCollider>();
         LeftMiddleMid = GameObject.FindGameObjectWithTag("LeftMiddleMid").GetComponent<CapsuleCollider>();
         LeftMiddleBot = GameObject.FindGameObjectWithTag("LeftMiddleBot").GetComponent<CapsuleCollider>();
@@ -248,6 +268,10 @@ public class FindColliders : MonoBehaviour
 
     private void LeftRing()
     {
+        //LeftRingTip = leftThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //LeftRingMid = leftThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //LeftRingBot = leftThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
+
         LeftRingTip = GameObject.FindGameObjectWithTag("LeftRingTip").GetComponent<CapsuleCollider>();
         LeftRingMid = GameObject.FindGameObjectWithTag("LeftRingMid").GetComponent<CapsuleCollider>();
         LeftRingBot = GameObject.FindGameObjectWithTag("LeftRingBot").GetComponent<CapsuleCollider>();
@@ -255,6 +279,10 @@ public class FindColliders : MonoBehaviour
 
     private void LeftPinky()
     {
+        //LeftPinkyTip = leftThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
+        //LeftPinkyMid = leftThumb.transform.Find("bone2").GetComponent<CapsuleCollider>();
+        //LeftPinkyBot = leftThumb.transform.Find("bone1").GetComponent<CapsuleCollider>();
+
         LeftPinkyTip = GameObject.FindGameObjectWithTag("LeftPinkyTip").GetComponent<CapsuleCollider>();
         LeftPinkyMid = GameObject.FindGameObjectWithTag("LeftPinkyMid").GetComponent<CapsuleCollider>();
         LeftPinkyBot = GameObject.FindGameObjectWithTag("LeftPinkyBot").GetComponent<CapsuleCollider>();
@@ -262,30 +290,49 @@ public class FindColliders : MonoBehaviour
 
     private void LeftOther()
     {
-        LeftThumbCreaseFront = GameObject.FindGameObjectWithTag("LeftThumbCreaseFront").GetComponent<CapsuleCollider>();
+        //LeftIndexKnuckle = leftIndex.transform.Find("IndexKnuckle").GetComponent<CapsuleCollider>();
+        //LeftMiddleKnuckle = leftMid.transform.Find("MidKnuckle").GetComponent<CapsuleCollider>();
+        //LeftRingKnuckle = leftRing.transform.Find("RingKnuckle").GetComponent<CapsuleCollider>();
+        //LeftPinkyKnuckle = leftPinky.transform.Find("PinkyKnuckle").GetComponent<CapsuleCollider>();
 
-        // CHANGE??
-        LeftIndexPalm = GameObject.FindGameObjectWithTag("LeftIndexPalm").GetComponent<BoxCollider>();
-        LeftPinkyPalm = GameObject.FindGameObjectWithTag("LeftPinkyPalm").GetComponent<BoxCollider>();
-        TouchpointZ = GameObject.FindGameObjectWithTag("TouchpointZ").GetComponent<BoxCollider>();
-        //
+        //LeftThumbCreaseFront = leftPalm.transform.Find("ThumbPalm").GetComponent<CapsuleCollider>();
+        //LeftClosed = leftPalm.transform.Find("ClosedFingersLeft").GetComponent<BoxCollider>();
+        //LeftOpen = leftPalm.transform.Find("").GetComponent<BoxCollider>();
+
+        // CHANGE?
+        //LeftIndexPalm = leftPalm.transform.Find("IndexPalm").GetComponent<BoxCollider>();
+        //LeftPinkyPalm = leftPalm.transform.Find("PinkyPalm").GetComponent<BoxCollider>();
+        //TouchpointZ = leftPalm.transform.Find("TouchPointZ").GetComponent<BoxCollider>();
+
+        // Vowels
+        //VowelA = leftThumb.transform.Find("ThumbTip").GetComponent<CapsuleCollider>();
+        //VowelE = leftThumb.transform.Find("IndexTip").GetComponent<CapsuleCollider>();
+        //VowelI = leftThumb.transform.Find("MiddleTip").GetComponent<CapsuleCollider>();
+        //VowelO = leftThumb.transform.Find("RingTip").GetComponent<CapsuleCollider>();
+        //VowelU = leftThumb.transform.Find("PinkyTip").GetComponent<CapsuleCollider>();
+
+        // OLD
+
+        LeftThumbCreaseFront = GameObject.FindGameObjectWithTag("LeftThumbCreaseFront").GetComponent<CapsuleCollider>();
 
         LeftIndexKnuckle = GameObject.FindGameObjectWithTag("LeftIndexKnuckle").GetComponent<CapsuleCollider>();
         LeftMiddleKnuckle = GameObject.FindGameObjectWithTag("LeftMiddleKnuckle").GetComponent<CapsuleCollider>();
         LeftRingKnuckle = GameObject.FindGameObjectWithTag("LeftRingKnuckle").GetComponent<CapsuleCollider>();
         LeftPinkyKnuckle = GameObject.FindGameObjectWithTag("LeftPinkyKnuckle").GetComponent<CapsuleCollider>();
 
-        //LeftOpen = GameObject.FindGameObjectWithTag("").GetComponent<CapsuleCollider>();
         LeftClosed = GameObject.FindGameObjectWithTag("ClosedFingersLeft").GetComponent<BoxCollider>();
+        //LeftOpen = GameObject.FindGameObjectWithTag("").GetComponent<CapsuleCollider>();
+
+        // CHANGE??
+        LeftIndexPalm = GameObject.FindGameObjectWithTag("LeftIndexPalm").GetComponent<BoxCollider>();
+        LeftPinkyPalm = GameObject.FindGameObjectWithTag("LeftPinkyPalm").GetComponent<BoxCollider>();
+        TouchpointZ = GameObject.FindGameObjectWithTag("TouchpointZ").GetComponent<BoxCollider>();
 
         // Vowels
-        VowelA = leftThumb.transform.Find("ThumbTip").GetComponent<CapsuleCollider>();
+        VowelA = GameObject.FindGameObjectWithTag("ATip").GetComponent<CapsuleCollider>();
         VowelE = GameObject.FindGameObjectWithTag("ETip").GetComponent<CapsuleCollider>();
         VowelI = GameObject.FindGameObjectWithTag("ITip").GetComponent<CapsuleCollider>();
         VowelO = GameObject.FindGameObjectWithTag("OTip").GetComponent<CapsuleCollider>();
         VowelU = GameObject.FindGameObjectWithTag("UTip").GetComponent<CapsuleCollider>();
-
-        //RightThumbTip = rightThumb.transform.Find("bone3").GetComponent<CapsuleCollider>();
-
     }
 }
