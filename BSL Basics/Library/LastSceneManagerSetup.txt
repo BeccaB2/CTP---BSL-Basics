@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Mounted_VR/Demo/MountedHandDemo.unity
+- path: Assets/Scenes/Desktop/4 - ConsonantPractice1DT.unity
   isLoaded: 1
   isActive: 1

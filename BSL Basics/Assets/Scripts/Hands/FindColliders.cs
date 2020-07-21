@@ -76,7 +76,7 @@ public class FindColliders : MonoBehaviour
     //public Collider LeftOpen;
     public Collider LeftClosed;
 
-    GameObject hands;
+    //GameObject hands;
     //GameObject left;
     //GameObject right;
 
@@ -97,15 +97,15 @@ public class FindColliders : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
-            SceneManager.GetActiveScene().name == "VowelPracticeVR")
-        {
-            hands = GameObject.Find("LeapHandController");
-        }
-        else
-        {
-            hands = GameObject.Find("HandModels");
-        }
+        //if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
+        //    SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        //{
+        //    hands = GameObject.Find("LeapHandController");
+        //}
+        //else
+        //{
+        //    hands = GameObject.Find("HandModels");
+        //}
 
         // Maybe change below to similar??
         //hands = GameObject.Find("LeapHandController");

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CollisionDetectionCons1 : MonoBehaviour
 {
-    GameObject leftHand;
+    //GameObject leftHand;
     GameObject rightHand;
     GameObject hands;
 
@@ -65,7 +65,7 @@ public class CollisionDetectionCons1 : MonoBehaviour
         fingers = hands.GetComponent<HandClosureChecking>();
 
         // Seperate hands
-        leftHand = GameObject.Find("RigidRoundHand_L");
+        //leftHand = GameObject.Find("RigidRoundHand_L");
         rightHand = GameObject.Find("RigidRoundHand_R");
     }
 

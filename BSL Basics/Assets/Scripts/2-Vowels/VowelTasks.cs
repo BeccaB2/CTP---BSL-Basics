@@ -19,19 +19,28 @@ public class VowelTasks : MonoBehaviour
         practicedTask = false;
         completedTask = false;
 
-        hands = GameObject.Find("HandModels");
+        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
+           SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        {
+            hands = GameObject.Find("LeapHandController");
+        }
+        else
+        {
+            hands = GameObject.Find("HandModels");
+        }
+
         vowelCollision = hands.GetComponent<CollisionDetectionVowels>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (SceneManager.GetActiveScene().name == "2 - VowelPractice")
+        if (SceneManager.GetActiveScene().name == "2 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "VowelPracticeVR")
         {
             PracticeTaskProgress();
 
         }
-        else if (SceneManager.GetActiveScene().name == "3 - VowelChallenge")
+        else if (SceneManager.GetActiveScene().name == "3 - VowelChallengeDT")
         {
             ChallengeProgess();
         }
@@ -114,11 +123,11 @@ public class VowelTasks : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        if (SceneManager.GetActiveScene().name == "2 - VowelPractice")
+        if (SceneManager.GetActiveScene().name == "2 - VowelPracticeDT")
         {
             SceneManager.LoadScene(2);
         }
-        else if (SceneManager.GetActiveScene().name == "3 - VowelChallenge")
+        else if (SceneManager.GetActiveScene().name == "3 - VowelChallengeDT")
         {
             SceneManager.LoadScene(3);
         }    

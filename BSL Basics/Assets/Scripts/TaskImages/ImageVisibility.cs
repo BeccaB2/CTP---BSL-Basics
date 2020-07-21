@@ -48,12 +48,12 @@ public class ImageVisibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "2 - VowelPractice")
+        if (SceneManager.GetActiveScene().name == "2 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "VowelPracticeVR")
         {
             EnableTick();
             DisableTick();
         }
-        else if (SceneManager.GetActiveScene().name == "3 - VowelChallenge")
+        else if (SceneManager.GetActiveScene().name == "3 - VowelChallengeDT")
         {
             DisableQuestionMark();
         }
@@ -65,7 +65,11 @@ public class ImageVisibility : MonoBehaviour
             EnableImagesCons3();
             EnableImagesCons4();
             EnableImagesCons5();
-        }     
+        }  
+        else if(SceneManager.GetActiveScene().name == "4 - ConsonantPractice1DT")
+        {
+            
+        }
     }
 
     private void EnableTick()
