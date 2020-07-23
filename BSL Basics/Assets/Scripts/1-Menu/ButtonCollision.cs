@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonCollision : MonoBehaviour {
-
+public class ButtonCollision : MonoBehaviour 
+{
     public Collider buttonCollider;
     public Collider leftIndex;
     public Collider rightIndex;
@@ -15,7 +15,7 @@ public class ButtonCollision : MonoBehaviour {
     public GameObject rightHand;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         buttonCollider = GameObject.FindGameObjectWithTag("StartButton").GetComponent<CapsuleCollider>();
     }
@@ -23,7 +23,15 @@ public class ButtonCollision : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Mouse control
+        MouseAction();
+
         // Find the colliders for each hand & check for button press
+        //HandControl();
+    }
+
+    private void HandControl()
+    {
         if (rightHand.activeInHierarchy != false)
         {
             rightIndex = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
@@ -44,6 +52,37 @@ public class ButtonCollision : MonoBehaviour {
             leftIndex = null;
         }
     }
+
+    private void MouseAction()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Clicky");
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.ScreenPointToRay(Input.mousePosition).direction, Color.red);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == buttonCollider.gameObject.tag)
+                {
+                    Debug.Log("Hit");
+                    SceneManager.LoadScene(1);
+                }
+            }
+            else
+            {
+                Debug.Log("Miss");
+            }
+        }
+    }
+
+    //void OnMouseDown()
+    //{
+    //    Debug.Log("Clicky");
+    //}
 
     private void LeftButtonPress()
     {

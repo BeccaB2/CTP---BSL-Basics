@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Desktop/4 - ConsonantPractice1DT.unity
+- path: Assets/Scenes/Desktop/1 - Menu.unity
   isLoaded: 1
   isActive: 1

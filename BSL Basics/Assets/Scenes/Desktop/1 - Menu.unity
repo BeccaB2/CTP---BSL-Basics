@@ -3237,7 +3237,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1737579481}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -3480,7 +3480,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Point at the green button to begin learning
+  m_Text: Click the green button to begin learning
 --- !u!222 &1821391697
 CanvasRenderer:
   m_ObjectHideFlags: 0
