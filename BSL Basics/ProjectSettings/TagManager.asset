@@ -55,6 +55,8 @@ TagManager:
   - ITip
   - OTip
   - UTip
+  - StartDT
+  - StartMT
   layers:
   - Default
   - TransparentFX

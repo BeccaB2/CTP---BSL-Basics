@@ -22,8 +22,8 @@ public class ImageVisibility : MonoBehaviour
     void Start ()
     {
         // Finding the hand object
-        if(SceneManager.GetActiveScene().name == "MountedHandDemo" || 
-           SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if(SceneManager.GetActiveScene().name == "2 - VRHandDemo" || 
+           SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             hands = GameObject.Find("LeapHandController");
         }
@@ -48,16 +48,16 @@ public class ImageVisibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "2 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if (SceneManager.GetActiveScene().name == "1 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             EnableTick();
             DisableTick();
         }
-        else if (SceneManager.GetActiveScene().name == "3 - VowelChallengeDT")
+        else if (SceneManager.GetActiveScene().name == "2 - VowelChallengeDT")
         {
             DisableQuestionMark();
         }
-        else if (SceneManager.GetActiveScene().name == "DesktopHandDemo" || SceneManager.GetActiveScene().name == "MountedHandDemo")
+        else if (SceneManager.GetActiveScene().name == "4 - DesktopHandDemo" || SceneManager.GetActiveScene().name == "2 - VRHandDemo")
         {
             EnableImagesVowels();
             EnableImagesCons1();
@@ -66,7 +66,7 @@ public class ImageVisibility : MonoBehaviour
             EnableImagesCons4();
             EnableImagesCons5();
         }  
-        else if(SceneManager.GetActiveScene().name == "4 - ConsonantPractice1DT")
+        else if(SceneManager.GetActiveScene().name == "3 - ConsonantPractice1DT")
         {
             
         }

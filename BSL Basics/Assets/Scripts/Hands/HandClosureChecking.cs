@@ -64,8 +64,8 @@ public class HandClosureChecking : MonoBehaviour
     private void FindHandsAndColliders()
     {
         // Finding the correct hand object
-        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
-            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if (SceneManager.GetActiveScene().name == "2 - VRHandDemo" ||
+            SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             hands = GameObject.Find("LeapHandController");
         }

@@ -81,8 +81,8 @@ public class LetterConflictTesting : MonoBehaviour
     private void FindHandsAndScripts()
     {
         // Finding the correct hand object - the hands have different names for desktop & VR
-        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
-            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if (SceneManager.GetActiveScene().name == "2 - VRHandDemo" ||
+            SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             hands = GameObject.Find("LeapHandController");
         }

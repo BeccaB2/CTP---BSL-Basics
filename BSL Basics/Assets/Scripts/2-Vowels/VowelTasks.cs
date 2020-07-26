@@ -19,8 +19,8 @@ public class VowelTasks : MonoBehaviour
         practicedTask = false;
         completedTask = false;
 
-        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
-           SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if (SceneManager.GetActiveScene().name == "2 - VRHandDemo" ||
+           SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             hands = GameObject.Find("LeapHandController");
         }
@@ -35,12 +35,12 @@ public class VowelTasks : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (SceneManager.GetActiveScene().name == "2 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if (SceneManager.GetActiveScene().name == "1 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             PracticeTaskProgress();
 
         }
-        else if (SceneManager.GetActiveScene().name == "3 - VowelChallengeDT")
+        else if (SceneManager.GetActiveScene().name == "2 - VowelChallengeDT")
         {
             ChallengeProgess();
         }
@@ -123,11 +123,11 @@ public class VowelTasks : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        if (SceneManager.GetActiveScene().name == "2 - VowelPracticeDT")
-        {
+        if (SceneManager.GetActiveScene().name == "1 - VowelPracticeDT")
+        { 
             SceneManager.LoadScene(2);
         }
-        else if (SceneManager.GetActiveScene().name == "3 - VowelChallengeDT")
+        else if (SceneManager.GetActiveScene().name == "2 - VowelChallengeDT")
         {
             SceneManager.LoadScene(3);
         }    

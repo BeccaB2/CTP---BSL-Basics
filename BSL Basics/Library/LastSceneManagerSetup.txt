@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Desktop/1 - Menu.unity
+- path: Assets/Scenes/Mounted_VR/InstructionsVR.unity
   isLoaded: 1
   isActive: 1

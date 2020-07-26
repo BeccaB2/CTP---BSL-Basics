@@ -43,8 +43,8 @@ public class CollisionDetectionCons4 : MonoBehaviour
     private void FindHandsAndColliders()
     {
         // Finding the hand object
-        if (SceneManager.GetActiveScene().name == "MountedHandDemo" ||
-            SceneManager.GetActiveScene().name == "VowelPracticeVR")
+        if (SceneManager.GetActiveScene().name == "2 - VRHandDemo" ||
+            SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
             hands = GameObject.Find("LeapHandController");
         }

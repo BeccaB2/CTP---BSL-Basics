@@ -5,19 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class ButtonCollision : MonoBehaviour 
 {
-    public Collider buttonCollider;
-    public Collider leftIndex;
-    public Collider rightIndex;
+    Collider DTButtonCollider;
+    Collider MTButtonCollider;
+
+    Material light;
+    Material dark;
 
     //public GameObject parentForHands;
 
-    public GameObject leftHand;
-    public GameObject rightHand;
+    //public GameObject leftHand;
+    //public GameObject rightHand;
+    //public Collider leftIndex;
+    //public Collider rightIndex;
 
     // Use this for initialization
     void Start()
     {
-        buttonCollider = GameObject.FindGameObjectWithTag("StartButton").GetComponent<CapsuleCollider>();
+        dark = Resources.Load<Material>("ButtonDark");
+        light = Resources.Load<Material>("ButtonLight");
+
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {          
+            DTButtonCollider = GameObject.FindGameObjectWithTag("StartDT").GetComponent<CapsuleCollider>();
+            MTButtonCollider = GameObject.FindGameObjectWithTag("StartMT").GetComponent<CapsuleCollider>();
+        }
     }
 	
 	// Update is called once per frame
@@ -26,64 +37,102 @@ public class ButtonCollision : MonoBehaviour
         // Mouse control
         MouseAction();
 
-        // Find the colliders for each hand & check for button press
+        // Find the colliders for each hand & checks for button press
         //HandControl();
-    }
-
-    private void HandControl()
-    {
-        if (rightHand.activeInHierarchy != false)
-        {
-            rightIndex = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
-            RightButtonPress();
-        }
-        else
-        {
-            rightIndex = null;
-        }
-
-        if (leftHand.activeInHierarchy != false)
-        {
-            leftIndex = GameObject.FindGameObjectWithTag("LeftIndexTip").GetComponent<CapsuleCollider>();
-            LeftButtonPress();
-        }
-        else
-        {
-            leftIndex = null;
-        }
     }
 
     private void MouseAction()
     {
-        if (Input.GetMouseButtonDown(0))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(Camera.main.transform.position, 
+            Camera.main.ScreenPointToRay(Input.mousePosition).direction, Color.red);
+
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Clicky");
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.ScreenPointToRay(Input.mousePosition).direction, Color.red);
-
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (SceneManager.GetActiveScene().name == "Menu")
             {
-                if (hit.collider.tag == buttonCollider.gameObject.tag)
-                {
-                    Debug.Log("Hit");
-                    SceneManager.LoadScene(1);
-                }
+                MenuButtons(hit);
             }
-            else
+        }
+        else 
+        {
+            if (SceneManager.GetActiveScene().name == "Menu")
             {
-                Debug.Log("Miss");
+                DTButtonCollider.gameObject.GetComponent<Renderer>().material = dark;
+                MTButtonCollider.gameObject.GetComponent<Renderer>().material = dark;
             }
         }
     }
+
+    private void MenuButtons(RaycastHit hit)
+    {
+        if (hit.collider.tag == DTButtonCollider.gameObject.tag)
+        {
+            Debug.Log("DTHit");
+            DTButtonCollider.gameObject.GetComponent<Renderer>().material = light;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Clicky");
+                SceneManager.LoadScene(1);
+            }             
+        }
+        else
+        {
+            DTButtonCollider.gameObject.GetComponent<Renderer>().material = dark;
+        }
+        
+        if (hit.collider.tag == MTButtonCollider.gameObject.tag)
+        {
+            Debug.Log("MTHit");
+            MTButtonCollider.gameObject.GetComponent<Renderer>().material = light;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Clicky");
+                SceneManager.LoadScene(5);
+            }              
+        }
+        else
+        {
+            MTButtonCollider.gameObject.GetComponent<Renderer>().material = dark;
+        }
+    }
+
+    /*
+   private void HandControl()
+   {
+       if (rightHand.activeInHierarchy != false)
+       {
+           rightIndex = GameObject.FindGameObjectWithTag("RightIndexTip").GetComponent<CapsuleCollider>();
+           RightButtonPress();
+       }
+       else
+       {
+           rightIndex = null;
+       }
+
+       if (leftHand.activeInHierarchy != false)
+       {
+           leftIndex = GameObject.FindGameObjectWithTag("LeftIndexTip").GetComponent<CapsuleCollider>();
+           LeftButtonPress();
+       }
+       else
+       {
+           leftIndex = null;
+       }
+
+   }
+   */
 
     //void OnMouseDown()
     //{
     //    Debug.Log("Clicky");
     //}
 
+    /*
     private void LeftButtonPress()
     {
         if (leftIndex.bounds.Intersects(buttonCollider.bounds))
@@ -101,4 +150,5 @@ public class ButtonCollision : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+    */
 }
