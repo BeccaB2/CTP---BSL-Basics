@@ -41,7 +41,7 @@ public class ImageVisibility : MonoBehaviour
         consonantCollision5 = hands.GetComponent<CollisionDetectionCons5>();
 
         // Finding the vowel practice task script
-        ui = GameObject.Find("Background");
+        ui = GameObject.Find("Canvas");
         progress = ui.GetComponent<VowelTasks>();
     }
 
@@ -50,7 +50,7 @@ public class ImageVisibility : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "1 - VowelPracticeDT" || SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
         {
-            EnableTick();
+            EnableTickVowels();
             DisableTick();
         }
         else if (SceneManager.GetActiveScene().name == "2 - VowelChallengeDT")
@@ -68,11 +68,15 @@ public class ImageVisibility : MonoBehaviour
         }  
         else if(SceneManager.GetActiveScene().name == "3 - ConsonantPractice1DT")
         {
-            
+            //EnableTicksCons1();
+            //EnableTicksCons2();
+            //EnableTicksCons3();
+            //EnableTicksCons4();
+            //EnableTicksCons5();
         }
     }
 
-    private void EnableTick()
+    private void EnableTickVowels()
     {
         // May need to encompass this in if to check what scene we are in
         if (vowelCollision.APracticed == true)

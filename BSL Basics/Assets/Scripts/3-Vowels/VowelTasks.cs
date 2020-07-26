@@ -125,11 +125,15 @@ public class VowelTasks : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "1 - VowelPracticeDT")
         { 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else if (SceneManager.GetActiveScene().name == "2 - VowelChallengeDT")
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }    
+        else if(SceneManager.GetActiveScene().name == "1 - VowelPracticeVR")
+        {
+            SceneManager.LoadScene(8);
+        }
     }   
 }
