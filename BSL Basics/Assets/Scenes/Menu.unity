@@ -3904,10 +3904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2116afcdf4d44904c9fd03635fbe5138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DTButtonCollider: {fileID: 0}
-  MTButtonCollider: {fileID: 0}
-  light: {fileID: 0}
-  dark: {fileID: 0}
 --- !u!1 &1820498710 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 172244, guid: 23f2cce114628a448bfeaae171b4c0c0, type: 2}
@@ -4147,7 +4143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1864627079
 Transform:
   m_ObjectHideFlags: 0
@@ -4574,10 +4570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2116afcdf4d44904c9fd03635fbe5138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DTButtonCollider: {fileID: 0}
-  MTButtonCollider: {fileID: 0}
-  light: {fileID: 0}
-  dark: {fileID: 0}
 --- !u!1 &1984715976 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 133118, guid: c8515ebee271c0649b9db1321f3026a4, type: 2}
@@ -4785,10 +4777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2116afcdf4d44904c9fd03635fbe5138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DTButtonCollider: {fileID: 0}
-  MTButtonCollider: {fileID: 0}
-  light: {fileID: 0}
-  dark: {fileID: 0}
 --- !u!1 &2057528855 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 130238, guid: 23f2cce114628a448bfeaae171b4c0c0, type: 2}

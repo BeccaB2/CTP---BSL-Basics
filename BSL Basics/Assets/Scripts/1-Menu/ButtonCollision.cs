@@ -92,7 +92,7 @@ public class ButtonCollision : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Clicky");
-                SceneManager.LoadScene(5);
+                SceneManager.LoadScene(6);
             }              
         }
         else
