@@ -1,4 +1,5 @@
 # CTP---BSL-Basics
+*Please note that the menu is mouse operated.
 # Equipment & software:
 To run the project, you will need a Leap Motion controller to enable the hands to be tracked.
 You will also need to download the V4 Orion SDK for the controller from the following link:
