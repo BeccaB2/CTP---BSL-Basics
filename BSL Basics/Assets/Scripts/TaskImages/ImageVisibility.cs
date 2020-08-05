@@ -73,6 +73,8 @@ public class ImageVisibility : MonoBehaviour
             //EnableTicksCons3();
             //EnableTicksCons4();
             //EnableTicksCons5();
+
+            EnableTickVowels();
         }
     }
 
@@ -102,6 +104,26 @@ public class ImageVisibility : MonoBehaviour
         if (vowelCollision.UPracticed == true)
         {
             GameObject.Find("U_Tick").GetComponent<Image>().enabled = true;
+        }
+
+        if (consonantCollision1.BPracticed == true)
+        {
+            GameObject.Find("A_Tick").GetComponent<Image>().enabled = true;
+        }
+
+        if (consonantCollision1.CPracticed == true)
+        {
+            GameObject.Find("E_Tick").GetComponent<Image>().enabled = true;
+        }
+
+        if (consonantCollision1.DPracticed == true)
+        {
+            GameObject.Find("I_Tick").GetComponent<Image>().enabled = true;
+        }
+
+        if (consonantCollision1.FPracticed == true)
+        {
+            GameObject.Find("O_Tick").GetComponent<Image>().enabled = true;
         }
     }
 
